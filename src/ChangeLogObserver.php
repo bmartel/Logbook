@@ -2,6 +2,7 @@
 
 use Illuminate\Contracts\Auth\Guard;
 
+
 /**
  * Class ChangeLogObserver
  *
@@ -60,15 +61,16 @@ class ChangeLogObserver
     /**
      * @param $type
      * @param $model
+     *
      * @return array
      */
     protected function changeSet($type, $model)
     {
         $data = [
             'change_type' => $type,
-            'user_id' => $this->userId,
-            'model_type' => get_class($model),
-            'model_id' => $model->getKey()
+            'user_id'     => $this->userId,
+            'model_type'  => get_class($model),
+            'model_id'    => $model->getKey(),
         ];
 
         $data['change_set'] = md5(serialize($data) . time());
@@ -86,13 +88,13 @@ class ChangeLogObserver
             $currentChangeSet = $changeSet + ['new_value' => $value];
             LogEntry::create($this->getLogEntries($currentChangeSet, $model, $attribute));
         }
-
     }
 
     /**
      * @param $changeSet
      * @param $model
      * @param $attribute
+     *
      * @return mixed
      */
     protected function getLogEntries($changeSet, $model, $attribute)

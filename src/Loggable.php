@@ -28,8 +28,9 @@ trait Loggable
 
     protected function getEligibleProperties()
     {
-        if(property_exists($this, 'loggable') && !empty($this->loggable))
+        if (property_exists($this, 'loggable') && !empty($this->loggable)) {
             return $this->loggable;
+        }
 
         return $this->fillable;
     }

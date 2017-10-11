@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model;
 
+
 /**
  * Class LogEntry
  *
@@ -21,12 +22,13 @@ class LogEntry extends Model
         'model_id',
         'model_type',
         'change_type',
-        'change_set'
+        'change_set',
     ];
 
     /**
      * @param $query
      * @param $type
+     *
      * @return mixed
      */
     public function scopeByChangeType($query, $type)

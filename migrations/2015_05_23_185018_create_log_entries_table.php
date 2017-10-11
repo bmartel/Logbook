@@ -1,7 +1,8 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+
 
 class CreateLogEntriesTable extends Migration
 {
@@ -13,7 +14,7 @@ class CreateLogEntriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('log_entries', function (Blueprint $table) {
+        Schema::create('log_entries', function(Blueprint $table) {
             $table->increments('id');
             $table->string('property', 50)->default('');
             $table->text('old_value')->default('')->nullable();
