@@ -2,6 +2,7 @@
 
 use Illuminate\Support\ServiceProvider as LaravelServiceProvider;
 
+
 /**
  * Class ServiceProvider
  *
